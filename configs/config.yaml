@@ -1,0 +1,73 @@
+# ══════════════════════════════════════════════════════════════
+# MedForge Detector — Project Configuration
+# Model: CNN Baseline (single stream, RGB only)
+# ══════════════════════════════════════════════════════════════
+
+project:
+  name        : "MedForge Detector"
+  description : "Medical Image Forgery Detection"
+  version     : "1.0.0"
+  author      : "Jini"
+
+model:
+  name         : "CNN Baseline"
+  architecture : "5-block CNN from scratch"
+  input_size   : [224, 224, 3]
+  num_classes  : 2
+  classes      : ["Real", "Forged"]
+  parameters   : 1_734_689
+  saved_path   : "models_saved/cnn_baseline_best.pth"
+
+training:
+  epochs        : 10
+  batch_size    : 32
+  learning_rate : 0.001
+  dropout_rate  : 0.5
+  optimizer     : "Adam"
+  loss          : "BCELoss"
+  scheduler     : "ReduceLROnPlateau"
+  num_workers   : 0
+
+results:
+  test_accuracy : 93.04
+  val_accuracy  : 94.21
+  precision     : 94.42
+  recall        : 94.88
+  f1_score      : 94.65
+  auc_roc       : 0.9809
+  best_epoch    : 7
+
+dataset:
+  total_images  : 16830
+  train         : 11780
+  val           : 2523
+  test          : 2527
+  real_images   : 5906
+  forged_images : 10924
+  image_size    : [224, 224]
+  sources:
+    - "RSNA Pneumonia Detection (X-Ray)"
+    - "Medical Image Tamper Dataset (Kaggle)"
+    - "Brain Tumor MRI Dataset (Kaggle)"
+  forgery_types:
+    - "copy_move"
+    - "copy_paste"
+    - "content_removal"
+    - "text_addition"
+
+paths:
+  data_raw       : "data/raw"
+  data_processed : "data/processed"
+  ela_maps       : "data/processed/train_ela"
+  models_saved   : "models_saved"
+  results        : "results"
+  plots          : "results/plots"
+  metrics        : "results/metrics"
+  gradcam        : "results/gradcam_outputs"
+  app            : "app/app.py"
+
+app:
+  title       : "MedForge Detector"
+  icon        : "🔬"
+  layout      : "wide"
+  upload_types: ["png", "jpg", "jpeg", "dcm"]

@@ -1,0 +1,57 @@
+
+╔══════════════════════════════════════════════════════╗
+║     MEDFORGE DETECTOR — FINAL EVALUATION REPORT     ║
+╚══════════════════════════════════════════════════════╝
+
+Model        : CNN Baseline (built from scratch)
+Framework    : PyTorch 2.1.2
+Test Set     : 2,527 images (never seen during training)
+Date         : Final Submission
+
+──────────────────────────────────────────────────────
+PERFORMANCE METRICS
+──────────────────────────────────────────────────────
+Accuracy     : 93.04%
+Precision    : 94.42%
+Recall       : 94.88%
+F1 Score     : 94.65%
+AUC-ROC      : 0.9809
+
+──────────────────────────────────────────────────────
+CONFUSION MATRIX
+──────────────────────────────────────────────────────
+True Negatives  (TN) :   795  (Real → Real ✅)
+False Positives (FP) :    92  (Real → Forged ⚠️)
+False Negatives (FN) :    84  (Forged → Real ❌)
+True Positives  (TP) :  1556  (Forged → Forged ✅)
+
+──────────────────────────────────────────────────────
+DATASET SUMMARY
+──────────────────────────────────────────────────────
+Total images    : 16,830
+Training set    : 11,780  (70%)
+Validation set  :  2,523  (15%)
+Test set        :  2,527  (15%)
+
+Sources:
+  - RSNA Pneumonia X-Ray Dataset
+  - Medical Image Tamper Dataset (Kaggle)
+  - Brain Tumor MRI Dataset (Kaggle)
+
+Forgery types detected:
+  - Copy-move
+  - Copy-paste (splicing)
+  - Content removal
+  - Text addition
+
+──────────────────────────────────────────────────────
+MODEL ARCHITECTURE
+──────────────────────────────────────────────────────
+Type         : 5-block CNN (no pretrained weights)
+Parameters   : 1,734,689 trainable
+Input size   : 224 × 224 × 3
+Optimizer    : Adam (lr=0.001)
+Loss         : Binary Cross Entropy
+Epochs       : 10
+Best epoch   : 7
+──────────────────────────────────────────────────────

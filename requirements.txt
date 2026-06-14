@@ -1,0 +1,36 @@
+# Deep Learning
+torch==2.1.2
+torchvision==0.16.2
+timm==0.9.12
+
+# Image Processing
+opencv-python==4.9.0.80
+Pillow==10.2.0
+scikit-image==0.22.0
+
+# Medical Imaging
+pydicom==2.4.4
+SimpleITK==2.3.1
+nibabel==5.2.0
+
+# Data & ML
+numpy==1.26.4
+pandas==2.2.0
+scikit-learn==1.4.0
+matplotlib==3.8.2
+seaborn==0.13.2
+
+# Explainability
+grad-cam==1.4.8
+shap==0.44.0
+
+# Web App
+streamlit==1.31.0
+
+# Utilities
+tqdm==4.66.2
+PyYAML==6.0.1
+kaggle==1.6.3
+requests==2.31.0
+ipykernel==6.29.0
+jupyter==1.0.0

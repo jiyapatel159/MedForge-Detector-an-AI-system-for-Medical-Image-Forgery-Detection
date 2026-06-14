@@ -1,0 +1,7 @@
+Medical Image Forgery Detection — Model Comparison
+============================================================
+
+Model                  Accuracy  Precision     Recall         F1        AUC
+------------------------------------------------------------
+CNN Baseline             93.04%     94.42%     94.88%     94.65%     0.9809
+Dual-Stream              93.47%     94.78%     95.18%     94.98%     0.9842
